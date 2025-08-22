@@ -29,7 +29,17 @@ async function fetchCharacters(page){
 
     } catch(error) {
         // console.log("deu ruim")
+        resultsDiv.innerHTML = "<p>Erro ao buscar  personagens!!!</p>"
     }
 }
+
+searchBtn.addEventListener("click", () => {
+    const page = pageInput.value.trim()
+    if(page){
+        fetchCharacters(page)
+    }else{
+        resultsDiv.innerHTML = "<p>Digite um número de página</p>"
+    }
+})
 
 fetchCharacters(1)
